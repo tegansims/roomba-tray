@@ -1,6 +1,22 @@
-5 5
-1 2
-1 0
-2 2
-2 3 
-NNESEESWNWW
+{
+  "text": [
+    "5 5
+  1 2
+  1 0
+  2 2
+  2 3 
+  NNESEESWNWW"
+  ]
+}
+
+// {
+//   "posts": [
+//     {
+//       "id": 1,
+//       "title": "hello"
+//     }
+//   ],
+//   "profile": {
+//     "name": "typicode"
+//   }
+// }

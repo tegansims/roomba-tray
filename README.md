@@ -6,22 +6,27 @@
 
 Clone and download this repository onto your local machine. 
 
-Run `node index.js` in your terminal.
+## To use the sample text file provided by Tray.io
+Run `node scripts/input.js` in your terminal.
 
 
-## Use for other examples
-Currently this app works just for the one test file. If you would like to run the app for a different test file, please do the following:
+## To use for other examples
+There are two ways to run different examples.
 
-* Save the file you want to run **as a .txt file** in this directory, in the following format:
+
+__Firstly__, and most straightforward, run `open index.html` in the terminal, and follow the instructions on screen. It might be an idea to turn your computer sound down low first..
+
+
+__Secondly__, and slightly more longwinded, edit the file in this folder called `test.txt`, in the following format:
 
     * Line 1: holds the room dimensions (X Y), separated by a single space
-    * Line 2: holds the hoover position
+    * Line 2: holds the hoover position 
     * Subsequent lines: contain the zero or more positions of patches of dirt (one per line)
     * Final line: contains the roomba's driving instructions. These should be one of the following characters: N, S, E or W
 
-* Open up the index.js file, and navigate down to the bottom
+* Open up the `scripts/input.js` file, and navigate down to the bottom
 
-* Change the line `roombaParty('input.txt')` to `roombaParty('[name of your file]')`
+* Comment out line 48 (`roombaParty('input.txt')`), and uncomment line 49 (`roombaParty('test.txt')`)
 
-* Run `node index.js` in your terminal
+* Run `node scripts/input.js` in your terminal
 

@@ -5,12 +5,16 @@ body {
 
 .header, .calc, .footer {
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 
 .roomba-party, .calc {
-    color: #64a70b
+    color: #64a70b;
+}
+
+.submit {
+    background-color: #64a70b;
 }
 
 .specifications {

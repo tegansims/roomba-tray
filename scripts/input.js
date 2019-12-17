@@ -1,18 +1,21 @@
 // --- reading the file --- //
-
 const fs = require('fs')
 
-let rumbaParty = (file) => {
+
+
+
+let roombaParty = (file) => {
+    // --- splitting the file --- //
     let sampleText = fs.readFileSync(file, 'UTF-8')
     let sampleTextSplit = sampleText.split('\n')
 
-    // --- defining the variables --- //
+    // --- defining the variables for each file line --- //
     let roomDimensions = sampleTextSplit[0]
     let hooverStartingPos = sampleTextSplit[1]
     let patches = sampleTextSplit.slice(2, sampleTextSplit.length-1)
     let drivingInstructions = sampleTextSplit[sampleTextSplit.length - 1]
 
-
+    console.log(patches)
     // --- pseudocode --- //
 
     let hooverCurrentPos = hooverStartingPos
@@ -36,14 +39,16 @@ let rumbaParty = (file) => {
 
 // --- valid move helper method --- //
 let validMove=(dimensions, currentPos, move) => {
-    if (move === 'N' && currentPos[2] < parseInt(dimensions[0]-1))  currentPos = `${currentPos[0]} ${parseInt(currentPos[2])+1}` 
-    if (move === 'S' && currentPos[2] > 0)                          currentPos = `${currentPos[0]} ${parseInt(currentPos[2])-1}`
-    if (move === 'E' && currentPos[0] < parseInt(dimensions[2]-1))  currentPos = `${parseInt(currentPos[0])+1} ${currentPos[2]}`
-    if (move === 'W' && currentPos[0] > 0)                          currentPos = `${parseInt(currentPos[0])-1} ${currentPos[2]}`
+    moveCap = move.toUpperCase()
+
+    if (moveCap === 'N' && currentPos[2] < parseInt(dimensions[0]-1))    currentPos = `${currentPos[0]} ${parseInt(currentPos[2])+1}` 
+    if (moveCap === 'S' && currentPos[2] > 0)                            currentPos = `${currentPos[0]} ${parseInt(currentPos[2])-1}`
+    if (moveCap === 'E' && currentPos[0] < parseInt(dimensions[2]-1))    currentPos = `${parseInt(currentPos[0])+1} ${currentPos[2]}`
+    if (moveCap === 'W' && currentPos[0] > 0)                            currentPos = `${parseInt(currentPos[0])-1} ${currentPos[2]}`
+    
     return currentPos
 }
 
 
-
-rumbaParty('input.txt')
-rumbaParty('test.txt')
+roombaParty('input.txt')
+roombaParty('test.txt')

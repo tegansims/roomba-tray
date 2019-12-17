@@ -1,14 +1,15 @@
 
 // --- constants --- //
-let icon = document.querySelector('.roomba-icon')
+let icons = document.querySelectorAll('.roomba-icon')
 let rumba = document.querySelector('.rumba')
 let header = document.querySelector('.header')
 let dimensionsForm = document.querySelector('.specs')
-let answer = document.querySelector('.answer')
+let calc = document.querySelector('.calc')
 
 
 // --- event listeners --- //
-icon.addEventListener('click', playRumba)
+icons.forEach(icon => icon.addEventListener('click', playRumba))
+
 
 dimensionsForm.addEventListener('submit', findOrCreateUser)
 
@@ -25,6 +26,7 @@ function findOrCreateUser() {
     console.log(`Line 3 is ${event.target.dirtx1.value} ${event.target.dirty1.value}`)
     console.log(`Line 3 is ${event.target.dirtx2.value} ${event.target.dirty2.value}`)
     console.log(`Line 3 is ${event.target.dirtx3.value} ${event.target.dirty3.value}`)
+    console.log(`Line 3 is ${event.target.dirtx4.value} ${event.target.dirty4.value}`)
     console.log(`Line 4 is ${event.target.instructions.value}`)
     
     let roomDimensions = `${event.target.width.value} ${event.target.length.value}`
@@ -32,7 +34,8 @@ function findOrCreateUser() {
     let patches = [
         `${event.target.dirtx1.value} ${event.target.dirty1.value}`, 
         `${event.target.dirtx2.value} ${event.target.dirty2.value}`,
-        `${event.target.dirtx3.value} ${event.target.dirty3.value}`
+        `${event.target.dirtx3.value} ${event.target.dirty3.value}`,
+        `${event.target.dirtx4.value} ${event.target.dirty4.value}`
     ]
     let drivingInstructions =`${event.target.instructions.value}`
 
@@ -54,8 +57,22 @@ function findOrCreateUser() {
     console.log(`hooverFinalPos: ${hooverCurrentPos}`)
     console.log(`NumberPatchesCleaned: ${NumberPatchesCleaned}`)
 
-    answer.innerText=`This little roomba cleaned ${NumberPatchesCleaned} patches and ended up at position ${hooverCurrentPos}`
+    calculating()    
+
+    setTimeout(function(){ 
+        calc.innerText=''
+        icons.forEach(icon => icon.className='roomba-icon')
+
+        alert(`This little roomba cleaned ${NumberPatchesCleaned} patches and ended up at position ${hooverCurrentPos}`); 
+    }, 3000);
 }
+
+let calculating=()=>{
+    calc.innerText='Calculating.......'
+    playRumba()
+    icons.forEach(icon => icon.className='image')
+}
+
 
 
 let validMove=(dimensions, currentPos, move) => {

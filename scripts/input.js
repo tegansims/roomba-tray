@@ -32,7 +32,7 @@ let roombaParty = (file) => {
             patchesCleaned.push(hooverCurrentPos)
         } 
     }
-       
+    
     console.log(`hooverFinalPos: ${hooverCurrentPos}`)
     console.log(`NumberPatchesCleaned: ${NumberPatchesCleaned}`)
 }

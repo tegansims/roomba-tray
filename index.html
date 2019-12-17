@@ -12,20 +12,14 @@
         <audio data-key="rumba-data" class="rumba" src="./sounds/Rumba-beat-123-bpm.wav"></audio>
 
         <h1 class='header'>
-            <img class='roomba-icon' height=40px src="./images/roomba.png" alt="roomba icon">
+            <!-- <img class='roomba-icon' height=40px src="./images/roomba.png" alt="roomba icon"> -->
+            <img class="roomba-icon" height=40px src="./images/roomba.png" alt="roomba icon" >
             Welcome to the <span class='roomba-party'> Roomba Party!</span>
             <img class='roomba-icon' height=40px src="./images/roomba.png" alt="roomba icon">
         </h1>
 
         <h3 class='intro'>To get this roomba started, we'll need some information from you</h3>
         <div class='specifications'>
-            <form class='patches'>
-                    <label for='patches'>How many patches of dirt are there?</label> <br>
-                    <input id="patches" type="number" name="patches" placeholder="number of dirt patches"/> <br>
-                    <input type='submit' id='patchesBtn' value='Submit'></submit>
-            </form>
-
-            <br><br>
 
             <form class='specs'>
                 <label for="dimensions">How big is your room?</label> <br>
@@ -37,26 +31,29 @@
                 <input id="ycoord" type="number" name="ycoord" placeholder="y coordinate"/> <br><br>
 
                 
-                <label for="dirt-patches">Where are your dirt patches? Bottom left corner equates to x=0, y=0</label> <br>
+                <label for="dirt-patches">Where are your dirt patches located? Bottom left corner equates to x=0, y=0</label> <br>
                 <input id="dirtx" type="number" name="dirtx1" placeholder="x coordinate"/> <br>
                 <input id="dirty" type="number" name="dirty1" placeholder="y coordinate"/> <br><br>
                 <input id="dirtx" type="number" name="dirtx2" placeholder="x coordinate"/> <br>
                 <input id="dirty" type="number" name="dirty2" placeholder="y coordinate"/> <br><br>
                 <input id="dirtx" type="number" name="dirtx3" placeholder="x coordinate"/> <br>
                 <input id="dirty" type="number" name="dirty3" placeholder="y coordinate"/> <br><br>
+                <input id="dirtx" type="number" name="dirtx4" placeholder="x coordinate"/> <br>
+                <input id="dirty" type="number" name="dirty4" placeholder="y coordinate"/> <br><br>
 
-
-                <label for="instructions">And where is your roomba going? Use cardinal directions, with no spaces (eg NSWENNSEEW)</label> <br>
+                <label for="instructions">And where is your roomba going? Use cardinal directions, with no spaces or commas (eg NSWENNSEEW)</label> <br>
                 <input id="instructions" type="text" name="instructions" placeholder="roomba driving instructions"/> <br>
 
             <input type='submit' id='loginBtn' value="Where's the party at?"></submit>
             </form> <br><br>
         </div>
 
-        <h3 class='answer'>
-            
-        </h3>
-       
+        <h2 class='calc'>
+        </h2>
+        <div class='footer'>
+            <img class="roomba-icon" height=40px src="./images/roomba.png" alt="roomba icon" >
+            <img class="roomba-icon" height=40px src="./images/roomba.png" alt="roomba icon" >
+        </div>
         
     </body>
     <script type="text/javascript" src="scripts/index.js"></script>

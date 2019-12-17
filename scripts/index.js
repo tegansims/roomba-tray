@@ -9,25 +9,16 @@ let calc = document.querySelector('.calc')
 
 // --- event listeners --- //
 icons.forEach(icon => icon.addEventListener('click', playRumba))
-
-
-dimensionsForm.addEventListener('submit', findOrCreateUser)
+dimensionsForm.addEventListener('submit', userRoombaParty)
 
 // --- functions --- //
 function playRumba() {
     rumba.play()
 }
 
-function findOrCreateUser() {
+function userRoombaParty() {
     event.preventDefault()
     playRumba()
-    console.log(`Line 1 is ${event.target.width.value} ${event.target.length.value}`)
-    console.log(`Line 2 is ${event.target.xcoord.value} ${event.target.ycoord.value}`)
-    console.log(`Line 3 is ${event.target.dirtx1.value} ${event.target.dirty1.value}`)
-    console.log(`Line 3 is ${event.target.dirtx2.value} ${event.target.dirty2.value}`)
-    console.log(`Line 3 is ${event.target.dirtx3.value} ${event.target.dirty3.value}`)
-    console.log(`Line 3 is ${event.target.dirtx4.value} ${event.target.dirty4.value}`)
-    console.log(`Line 4 is ${event.target.instructions.value}`)
     
     let roomDimensions = `${event.target.width.value} ${event.target.length.value}`
     let hooverStartingPos = `${event.target.xcoord.value} ${event.target.ycoord.value}`
@@ -40,13 +31,11 @@ function findOrCreateUser() {
     let drivingInstructions =`${event.target.instructions.value}`
 
     let hooverCurrentPos = hooverStartingPos
-    console.log(`hooverStartingPos: ${hooverStartingPos}`)
     let NumberPatchesCleaned = 0
     let patchesCleaned = []
 
     for (i=0; i < drivingInstructions.length; i++ ) {
         hooverCurrentPos = validMove(roomDimensions, hooverCurrentPos, drivingInstructions[i])
-        console.log(hooverCurrentPos)
         
         if (patches.includes(hooverCurrentPos) && !patchesCleaned.includes(hooverCurrentPos)) {
             NumberPatchesCleaned ++
@@ -54,8 +43,8 @@ function findOrCreateUser() {
         } 
     }
        
-    console.log(`hooverFinalPos: ${hooverCurrentPos}`)
-    console.log(`NumberPatchesCleaned: ${NumberPatchesCleaned}`)
+    console.log(`Roomba's final position: ${hooverCurrentPos}`)
+    console.log(`Number of patches cleaned: ${NumberPatchesCleaned}`)
 
     calculating()    
 
@@ -67,13 +56,12 @@ function findOrCreateUser() {
     }, 3000);
 }
 
+// --- helper methods --- //
 let calculating=()=>{
     calc.innerText='Calculating.......'
     playRumba()
     icons.forEach(icon => icon.className='image')
 }
-
-
 
 let validMove=(dimensions, currentPos, move) => {
     moveCap = move.toUpperCase()

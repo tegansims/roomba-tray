@@ -2,8 +2,6 @@
 const fs = require('fs')
 
 
-
-
 let roombaParty = (file) => {
     // --- splitting the file --- //
     let sampleText = fs.readFileSync(file, 'UTF-8')
@@ -15,17 +13,14 @@ let roombaParty = (file) => {
     let patches = sampleTextSplit.slice(2, sampleTextSplit.length-1)
     let drivingInstructions = sampleTextSplit[sampleTextSplit.length - 1]
 
-    console.log(patches)
-    // --- pseudocode --- //
+    // --- defining variables for the loop --- //
 
     let hooverCurrentPos = hooverStartingPos
-    console.log(`hooverStartingPos: ${hooverStartingPos}`)
     let NumberPatchesCleaned = 0
     let patchesCleaned = []
 
     for (i=0; i < drivingInstructions.length; i++ ) {
         hooverCurrentPos = validMove(roomDimensions, hooverCurrentPos, drivingInstructions[i])
-        console.log(hooverCurrentPos)
         
         if (patches.includes(hooverCurrentPos) && !patchesCleaned.includes(hooverCurrentPos)) {
             NumberPatchesCleaned ++
@@ -33,8 +28,8 @@ let roombaParty = (file) => {
         } 
     }
     
-    console.log(`hooverFinalPos: ${hooverCurrentPos}`)
-    console.log(`NumberPatchesCleaned: ${NumberPatchesCleaned}`)
+    console.log(`Roomba's final position: ${hooverCurrentPos}`)
+    console.log(`Number of patches cleaned: ${NumberPatchesCleaned}`)
 }
 
 // --- valid move helper method --- //
@@ -51,4 +46,4 @@ let validMove=(dimensions, currentPos, move) => {
 
 
 roombaParty('input.txt')
-roombaParty('test.txt')
+// roombaParty('test.txt')

@@ -1,6 +1,6 @@
-# Tray.io technical test
+# Roomba party
 
-
+Ready to do the roooomba? 
 
 ## Instructions for use
 
@@ -26,7 +26,7 @@ __Secondly__, and slightly more longwinded, edit the file in this folder called 
 
 * Open up the `scripts/input.js` file, and navigate down to the bottom
 
-* Comment out line 48 (`roombaParty('input.txt')`), and uncomment line 49 (`roombaParty('test.txt')`)
+* Comment out line 48 `roombaParty('input.txt')`, and uncomment line 49 `roombaParty('test.txt')`
 
 * Run `node scripts/input.js` in your terminal
 
